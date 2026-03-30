@@ -1,4 +1,4 @@
-local library = loadsring(game:HttpGet("https://raw.githubusercontent.com/li1Carr0t/Carrot/refs/heads/main/Library/main%20library.lua"))()
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/li1Carr0t/Carrot/refs/heads/main/Library/main%20library.lua"))()
 local Windown = library.Create({
     Title = "Lunar Hub | Premium", Logo = 107584891022178,
     CornerRadius = 2, UISize = {
