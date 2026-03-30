@@ -1,5 +1,11 @@
 # 🖥 CarrotClient.exe
 
+![Repo](https://img.shields.io/badge/github-Carrot-blue?logo=github)
+![Lua](https://img.shields.io/badge/Lua-100%25-pink)
+![Developer](https://img.shields.io/badge/Carrot-Developer-660099)
+![RbloxExploit](https://img.shields.io/badge/Roblox%20Exploit-red)
+![OpenSource](https://img.shields.io/badge/Open-Source-green)
+
 **🧠 About Project**
 
 CarrotClient is a **Roblox exploiter** built for developers and educators.
