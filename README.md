@@ -22,11 +22,9 @@ CarrotClient is a **Roblox exploiter** built for developers and educators.
 
 ---
 
-**🛠 Setup**
+**🛠 Get Start**
 
-```lua
-print("Install CarrotClient.lua")
-```
+**[Get Free Source Code](https://github.com/li1Carr0t/Carrot/tree/main/OPEN%20SOURCE)**
 
 > [!TIP]
 > 🖥 Support **Mobile & PC**    
