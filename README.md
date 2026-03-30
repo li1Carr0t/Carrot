@@ -5,7 +5,7 @@
 CarrotClient is a **Roblox exploiter** built for developers and educators.
 
 > [!IMPORTANT] 
-> status : **SOON ⌛️**    
+> status : **ACTIVE 🔥**    
 > build : **v1.2**
 
 - ⚡️ Fast Execution
