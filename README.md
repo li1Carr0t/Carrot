@@ -1,10 +1,11 @@
 # 🖥 CarrotClient.exe
 
-![Repo](https://img.shields.io/badge/github-Carrot-blue?logo=github)
+![Repo](https://img.shields.io/badge/github-Carrot-ffccff?logo=github)
 ![Lua](https://img.shields.io/badge/Lua-100%25-pink)
 ![Developer](https://img.shields.io/badge/Carrot-Developer-660099)
-![RbloxExploit](https://img.shields.io/badge/Roblox%20Exploit-red)
+![RbloxExploit](https://img.shields.io/badge/Roblox%20Exploit-red?logo=robloxstudio)
 ![OpenSource](https://img.shields.io/badge/Open-Source-green)
+![Free](https://img.shields.io/badge/Free-6699ff?logo=Fueler)
 
 **🧠 About Project**
 
