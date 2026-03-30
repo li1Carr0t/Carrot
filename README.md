@@ -24,8 +24,8 @@ CarrotClient is a **Roblox exploiter** built for developers and educators.
 
 **🛠 Get Start**
 
-**[Get Free Source Code](https://github.com/li1Carr0t/Carrot/tree/main/OPEN%20SOURCE)**
-**[Download Source Code](https://github.com/li1Carr0t/Carrot/releases)
+**[🗂 View Source Code](https://github.com/li1Carr0t/Carrot/tree/main/OPEN%20SOURCE)**    
+**[📥 Download Source Code](https://github.com/li1Carr0t/Carrot/releases)**
 
 > [!TIP]
 > 🖥 Support **Mobile & PC**    
