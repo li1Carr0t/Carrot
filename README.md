@@ -8,7 +8,7 @@
 
 **🧠 About Project**
 
-CarrotClient is a **Roblox exploiter** built for developers and educators.
+CarrotClient is a **Roblox script** built for developers and educators.
 
 > [!IMPORTANT] 
 > status : **ACTIVE 🔥**    
