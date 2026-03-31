@@ -1,4 +1,4 @@
-name: Carrot Night Build
+name: Development Build
 
 on:
   push:
