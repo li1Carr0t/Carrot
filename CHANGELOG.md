@@ -2,6 +2,10 @@
 ![Verifed](https://img.shields.io/badge/Verify%20Log-6699ff?logo=verizon&logoColor=white)
 ![Release](https://img.shields.io/badge/Release%20Version-6666ff?logo=files&logoColor=white)
 
+> [!TIP]
+> Do you want to download Release?    
+> **download here [Release](https://github.com/li1Carr0t/Carrot/release)**
+
 ## v1.0.1
 **Update by @li1Carr0t**     
 > [+] Add Rainbow Color 🌈    
