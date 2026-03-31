@@ -4,28 +4,25 @@ on:
   push:
     branches: [ "main" ]
     paths: 
-      - '.github/workflows/build.lua'   # Trigger เฉพาะไฟล์นี้
-  pull_request:
-    branches: [ "main" ]
-    paths:
       - '.github/workflows/build.lua'
   workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout repository
       - uses: actions/checkout@v4
 
-      # 2️⃣ ตรวจสอบไฟล์ build.lua
       - name: List build.lua
         run: ls -l .github/workflows/build.lua
 
-      # 3️⃣ เก็บ build.lua เป็น artifact เพื่อโหลดจาก Actions
-      - name: Upload build.lua as artifact
-        uses: actions/upload-artifact@v3
+      - name: Upload build.lua
+        uses: actions/upload-artifact@v4
         with:
           name: build-lua
           path: .github/workflows/build.lua
