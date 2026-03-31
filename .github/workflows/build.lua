@@ -15,6 +15,7 @@ local KeySystem = Instance.new("ScreenGui")
 local KeyMain = Instance.new("Frame")
 local KeyEnter = Instance.new("TextBox")
 local UICorner = Instance.new("UICorner")
+local UIStroke2 = Instance.new("UIStroke")
 local UIStroke = Instance.new("UIStroke")
 local UICorner_2 = Instance.new("UICorner")
 local Text1 = Instance.new("TextLabel")
@@ -32,7 +33,7 @@ KeyMain.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
 KeyMain.BorderColor3 = Color3.fromRGB(0, 0, 0)
 KeyMain.BorderSizePixel = 0.65
 KeyMain.Position = UDim2.new(0.37667945, 0, 0.385529906, 0)
-KeyMain.Size = UDim2.new(0, 324, 0, 133)  -- ขนานของ Ui
+KeyMain.Size = UDim2.new(0, 324, 0, 133)  --  Ui Scale
 KeyMain.Active = true
 KeyMain.Draggable = true -- Ui can drag
 
@@ -45,16 +46,21 @@ KeyEnter.BorderSizePixel = 0
 KeyEnter.Position = UDim2.new(0.191307724, 0, 0.651018858, 0)
 KeyEnter.Size = UDim2.new(0, 200, 0, 38)
 KeyEnter.Font = Enum.Font[TextFontAll]
-KeyEnter.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
+KeyEnter.PlaceholderColor3 = Color3.fromRGB(0, 0, 0)
 KeyEnter.PlaceholderText = "Enter You Key Here!"  -- Change Textbox
 KeyEnter.Text = ""
-KeyEnter.TextColor3 = Color3.fromRGB(255, 255, 255)
+KeyEnter.TextColor3 = Color3.fromRGB(0, 0, 0)
 KeyEnter.TextSize = 14.000
 KeyEnter.TextStrokeTransparency = 0.000
 KeyEnter.TextWrapped = true
 
-UICorner.CornerRadius = UDim.new(0, 22)
+UICorner.CornerRadius = UDim.new(0, 8)
 UICorner.Parent = KeyEnter
+
+UIStroke2.Color = Color3.fromRGB(255, 255, 255)
+UIStroke2.Thickness = 2
+UIStroke2.Transparency = 0
+UIStroke2.Parent = KeyEnter
 
 UIStroke.Color = Color3.fromRGB(255, 255, 255)
 UIStroke.Thickness = 2
@@ -170,5 +176,7 @@ end
 
 game:GetService("RunService").RenderStepped:Connect(function()
 	UIStroke.Color = Rainbow()
+    UIStroke2.Color = Rainbow()
     Text1.TextColor3 = Rainbow()
+    Text2.TextColor3 = Rainbow()
 end)
