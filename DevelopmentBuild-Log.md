@@ -5,6 +5,12 @@
 > Do you want to download Nightly builds?    
 > **download here [Actions](https://github.com/li1Carr0t/Carrot/actions)**
 
+## Build #18
+> [+] Add Webhook Discord 👾    
+> `https://github.com/li1Carr0t/Carrot/blob/main/.github/workflows/build.lua`
+
+---
+
 ## Build #17
 > [+] Change Text2 TextColor to Rainbow 🌈    
 > [+] Change Placeholder Color to Black ⚫️    
