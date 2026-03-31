@@ -1,4 +1,6 @@
 # Nightly Builds Log 📄
+![Verifed](https://img.shields.io/badge/Verify%20Log-6699ff?logo=verizon&logoColor=white)
+![InDev](https://img.shields.io/badge/In-Development-green?logo=devdotto&logoColor=white)
 > [!TIP]
 > Do you want to download Nightly builds?    
 > **download here [Actions](https://github.com/li1Carr0t/Carrot/actions)**
