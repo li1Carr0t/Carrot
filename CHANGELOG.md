@@ -1,6 +1,6 @@
 # ChangeLog
 ![Verifed](https://img.shields.io/badge/Verify%20Log-6699ff?logo=verizon&logoColor=white)
-
+![Release](https://img.shields.io/badge/Release%20Version-6666ff?logo=files&logoColor=white)
 
 ## v1.0.1
 **Update by @li1Carr0t**     
