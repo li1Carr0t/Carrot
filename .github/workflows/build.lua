@@ -1,134 +1,104 @@
+--[[
+   Development Build #19
+   Made by 840Hz (li1Carr0t)
+]]--
 
-_G.Webhook = "https://discord.com/api/webhooks/xxxxx-zzzzzz"
+local RunService = game:GetService("RunService")
+local Stats = game:GetService("Stats")
+local Players = game:GetService("Players")
+local TweenService = game:GetService("TweenService")
 
--- // Var & Service
-local Player = game.Players.LocalPlayer
-local UserId = Player.UserId
-local UIS = game:GetService("UserInputService")
+local player = Players.LocalPlayer
+local gui = Instance.new("ScreenGui")
+gui.Name = "PerformanceOverlay"
+gui.ResetOnSpawn = false
+gui.Parent = player:WaitForChild("PlayerGui")
 
--- // JobId
-local JobId = game.JobId
+-- Frame
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0, 180, 0, 90) -- Frame Scale
+frame.Position = UDim2.new(1, -185, 0, -50)
+frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+frame.BackgroundTransparency = 0.45
+frame.BorderSizePixel = 0
+frame.Active = true
+frame.Draggable = true
+frame.Parent = gui
 
--- // NameMap
-local NameMap = "`" .. game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name .. "`\n"
+-- Corner & Stroke
+local corner = Instance.new("UICorner")
+local stroke = Instance.new("UIStroke")
+corner.CornerRadius = UDim.new(0, 12)
+corner.Parent = frame
 
--- // Rank
-local Rank = "👤 • Free"
+stroke.Color = Color3.fromRGB(0, 0, 0)
+stroke.Thickness = 1.5
+stroke.Parent = frame
 
--- // Time
-local OSTime = os.time()
-local Time = os.date("!*t", OSTime)
+-- Shadow
+local shadow = Instance.new("ImageLabel")
+shadow.Size = UDim2.new(1, 12, 1, 12)
+shadow.Position = UDim2.new(0, -6, 0, -6)
+shadow.BackgroundTransparency = 1
+shadow.Image = "rbxassetid://1316045217"
+shadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
+shadow.ImageTransparency = 0.7
+shadow.Parent = frame
+shadow.ZIndex = 0
+shadow.ScaleType = Enum.ScaleType.Slice
+shadow.SliceCenter = Rect.new(10, 10, 118, 118)
 
--- // Check Device
-local Device = "Unknown"
-if UIS.TouchEnabled and not UIS.KeyboardEnabled then
-    Device = "📱 Mobile"
-elseif UIS.KeyboardEnabled and not UIS.TouchEnabled then
-    Device = "💻 PC"
-elseif UIS.GamepadEnabled then
-    Device = "🎮 Console"
+-- TextLabel For Stats
+local label = Instance.new("TextLabel")
+label.Size = UDim2.new(1, -16, 1, -16)
+label.Position = UDim2.new(0, 8, 0, 8)
+label.BackgroundTransparency = 1
+label.TextColor3 = Color3.fromRGB(255, 255, 255)
+label.Font = Enum.Font.Code
+label.TextSize = 14 -- Text Scale
+label.TextXAlignment = Enum.TextXAlignment.Left
+label.TextYAlignment = Enum.TextYAlignment.Top
+label.Text = "Loading performance..."
+label.Parent = frame
+
+-- Padding in Label
+local padding = Instance.new("UIPadding")
+padding.PaddingTop = UDim.new(0, 3)
+padding.PaddingBottom = UDim.new(0, 3)
+padding.PaddingLeft = UDim.new(0, 4)
+padding.PaddingRight = UDim.new(0, 4)
+padding.Parent = label
+
+-- Function Get Ping, Memory
+local function getPing()
+    return math.floor(Stats.Network.ServerStatsItem["Data Ping"]:GetValue())
 end
 
--- // Executor Check
-local Executor = identifyexecutor() or "Unknown"
+local function getMemory()
+    return math.floor(Stats:GetTotalMemoryUsageMb())
+end
 
--- // Profile & Avatar
-local Avatar = game:HttpGet(string.format("https://thumbnails.roblox.com/v1/users/avatar?userIds=%d&size=180x180&format=Png&isCircular=true", game.Players.LocalPlayer.UserId))
-Avatar = game:GetService("HttpService"):JSONDecode(Avatar).data[1]
-local Avatar = Avatar.imageUrl
+local acc = 0
 
-local ProfileCharacter = game:HttpGet(string.format("https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=%d&size=180x180&format=Png&isCircular=true", game.Players.LocalPlayer.UserId))
-ProfileCharacter = game:GetService("HttpService"):JSONDecode(ProfileCharacter).data[1]
-local CharacterImage = ProfileCharacter.imageUrl
+-- Tween Overlay when run script
+local tweenInfo = TweenInfo.new(0.8, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+local tweenGoal = {Position = UDim2.new(1, -185, 0, -50)}
 
--- // Config Embed
-local Embed = {
-    title = "🍀 Test Notify 🛠",
-    color = 5763719,
+frame.Position = UDim2.new(1, 0, 0, -50)
+TweenService:Create(frame, tweenInfo, tweenGoal):Play()
 
-    author = {
-        name = "made by 840Hz",
-        icon_url = "https://cdn.rafled.com/anime-icons/images/kbwmRYVapUoi1s8wu53U6oI37HQntC8w.jpg",
-        url = "https://github.com/li1Carr0t/Carrot"
-    },
+-- Update Every 3 Second
+RunService.RenderStepped:Connect(function(dt)
+    acc += dt
+    if acc >= 0.3 then
+        acc = 0
+        local fps = math.floor(1 / dt)
+        local ping = getPing()
+        local mem = getMemory()
 
-    thumbnail = {
-        url = Avatar -- รูปเล็กมุมขวา
-    },
-
-    image = {
-        url = "https://c4.wallpaperflare.com/wallpaper/118/736/916/gawr-gura-hololive-blue-eyes-white-hair-hd-wallpaper-preview.jpg"
-    },
-
-    fields = {
-        {
-            name = "👤 Name",
-            value = "`" .. Player.Name .. "`\n",
-            inline = true
-        },
-        {
-			name = "🪪 DisplayName",
-            value = "`" .. Player.DisplayName .. "`",
-            inline = true
-        },
-        {
-            name = "🆔 UserId",
-            value = "`" .. tostring(UserId) .. "`\n",
-            inline = true
-        },
-        {
-            name = "💻 Device",
-            value = "`" .. Device .. "`\n",
-            inline = true
-        },
-        {
-            name = "🎮 Game",
-            value = NameMap,
-            inline = true
-        },
-        {
-            name = "🌐 JobId",
-            value = "`" .. JobId .. "`",
-            inline = true
-        },
-        {
-			name = "🎖 Rank",
-            value = Rank,
-            inline = true
-        },
-        {
-			name = "⚡️ Executor",
-            value = "`" .. Executor .. "`",
-            inline = true
-        },
-        {
-            name = "🕒 Time (UTC)",
-            value = "`" .. os.date("!%Y-%m-%d %H:%M:%S") .. "`\n",
-            inline = false
-        }
-    },
-
-    timestamp = string.format(
-        "%d-%02d-%02dT%02d:%02d:%02dZ",
-        Time.year, Time.month, Time.day,
-        Time.hour, Time.min, Time.sec
-    )
-}
-
-
-
-
--- // *===*   Run Webhook   *===* \\ --
-(syn and syn.request or http_request)({
-    Url = _G.Webhook,
-    Method = "POST",
-    Headers = {
-        ["Content-Type"] = "application/json"
-    },
-    Body = game:GetService("HttpService"):JSONEncode({
-        username = "User : " .. game.Players.LocalPlayer.Name .. " • 🍀",
-        avatar_url = CharacterImage,
-        --content = Content,
-        embeds = {Embed}
-    })
-})
+        label.Text = string.format(
+            "[ PERFORMANCE STATS ]\nFPS  : %03d\nPING : %03d ms\nMEM  : %04d MB",
+            fps, ping, mem
+        )
+    end
+end)
