@@ -17,17 +17,15 @@ jobs:
 
     steps:
       # 1️⃣ Checkout repository
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       # 2️⃣ ตรวจสอบไฟล์ build.lua
       - name: List build.lua
-        run: |
-          echo "Checking build.lua in workflows folder..."
-          ls -l .github/workflows/build.lua
+        run: ls -l .github/workflows/build.lua
 
-      # 3️⃣ ใช้ build.lua ต่อ (ถ้าต้องการรัน)
-      - name: Run build.lua (optional)
-        run: |
-          echo "Running build.lua..."
-          lua .github/workflows/build.lua
+      # 3️⃣ เก็บ build.lua เป็น artifact เพื่อโหลดจาก Actions
+      - name: Upload build.lua as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-lua
+          path: .github/workflows/build.lua
