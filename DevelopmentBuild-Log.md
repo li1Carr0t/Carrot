@@ -1,4 +1,7 @@
 # Development Build Log
+> [!TIP]
+> do you want to download development build?    
+> **download here [Actions](https://github.com/li1Carr0t/Carrot/actions)**
 
 ## Build #16
 > [+] Add Rainbow Color 🌈    
@@ -6,7 +9,7 @@
 > [*] Fix some bugs 🐞
 
 ```lua
--- *.+  Credit Status  +.* --
+-- *.+  Key System  +.* --
 
 -- // Create UIStroke
 local UIStroke = Instance.new("UIStroke")
