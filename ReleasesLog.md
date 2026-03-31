@@ -6,6 +6,30 @@
 > Do you want to download Release?    
 > **download here [Releases](https://github.com/li1Carr0t/Carrot/releases)**
 
+## Release 1.0.3
+
+### Performance Overlay ˚ ༘♡ ·   Webhook Discord
+
+**🖥 Performance Overlay**    
+> - Show DisplayName 👤    
+> - Show FPS ⚡️
+> - Show Ping 🌐
+> - Show Memory Usage 💻
+> - Update Status Every 3 Second ⌛️
+
+![C44BE3BB-F19D-4CC9-8DC6-7558679875AB](https://github.com/user-attachments/assets/c2d51602-e369-41bc-82a7-bc5dc8345660)
+
+**👾 Webhook Discord**
+
+> - Fix rank text 📃      
+> - Fix some bugs 🐞 
+
+```lua 
+local Rank = "`👤 • Free`"
+```
+
+---
+
 ## Webhook Discord v1.0.2
 **⚡️ Function**
 > - Custom Webhook Name
