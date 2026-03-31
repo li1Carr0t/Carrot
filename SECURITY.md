@@ -9,5 +9,7 @@
 | Key System      | ✅      | ❌            | ✅         |
 | Credit Status   | ✅      | ❌            | ✅         |
 
+---
+
 **🌐 Reporting Bug**
 - Discord : **840.0hz**
