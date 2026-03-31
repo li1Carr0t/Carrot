@@ -12,24 +12,31 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Checkout repo without persisting credentials
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
+      # 2️⃣ List Lua file
       - name: List Lua file
         run: |
           echo "Checking Lua file..."
           ls -l .github/workflows/build.lua || echo "File not found!"
 
+      # 3️⃣ Run Lua script
       - name: Run Lua script
         run: |
           echo "Running Lua script..."
           lua .github/workflows/build.lua || echo "Skipped if error"
 
+      # 4️⃣ Prepare build.lua
       - name: Prepare build.lua
         run: |
           echo "Creating build.lua..."
           cp .github/workflows/build.lua build.lua
 
+      # 5️⃣ Commit & Push build.lua with GITHUB_TOKEN
       - name: Commit & Push build.lua
         run: |
           git config --global user.name "github-actions"
