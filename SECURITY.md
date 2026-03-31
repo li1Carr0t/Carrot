@@ -4,7 +4,7 @@
 
 | Project         | Release | Nightly Build | Open Source |
 | --------------- | ------- | ------------- | ----------- |
-| Black Screen    | ❌      | ✅            | ✅         |
+| Black Screen    | ❌      | ❌            | ✅         |
 | Webhook Discord | ✅      | ❌            | ✅         |
 | Key System      | ✅      | ❌            | ✅         |
 | Credit Status   | ✅      | ❌            | ✅         |
