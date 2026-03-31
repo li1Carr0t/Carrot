@@ -1,182 +1,134 @@
--- Config
-local GKey = "Test111" -- Key Here
-local TextLabelText1 = "Key System" -- Name Hub
-local TextLabelText2 = "Carrot Premium" -- Name Hub
-local TextFontAll = "FredokaOne" -- Font
 
--- If key correct run this script
-local executeScript = print("Test")--loadstring(game:HttpGet("your raw script here"))()
+_G.Webhook = "https://discord.com/api/webhooks/xxxxx-zzzzzz"
 
--- Tween Service
-local TweenService = game:GetService("TweenService")
+-- // Var & Service
+local Player = game.Players.LocalPlayer
+local UserId = Player.UserId
+local UIS = game:GetService("UserInputService")
 
--- Create Gui
-local KeySystem = Instance.new("ScreenGui")
-local KeyMain = Instance.new("Frame")
-local KeyEnter = Instance.new("TextBox")
-local UICorner = Instance.new("UICorner")
-local UIStroke2 = Instance.new("UIStroke")
-local UIStroke = Instance.new("UIStroke")
-local UICorner_2 = Instance.new("UICorner")
-local Text1 = Instance.new("TextLabel")
-local Text2 = Instance.new("TextLabel")
+-- // JobId
+local JobId = game.JobId
 
--- Ui KeySystem
-KeySystem.Name = "KeySystem"
-KeySystem.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-KeySystem.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+-- // NameMap
+local NameMap = "`" .. game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name .. "`\n"
 
--- Ui KeyMain
-KeyMain.Name = "KeyMain"
-KeyMain.Parent = KeySystem
-KeyMain.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
-KeyMain.BorderColor3 = Color3.fromRGB(0, 0, 0)
-KeyMain.BorderSizePixel = 0.65
-KeyMain.Position = UDim2.new(0.37667945, 0, 0.385529906, 0)
-KeyMain.Size = UDim2.new(0, 324, 0, 133)  --  Ui Scale
-KeyMain.Active = true
-KeyMain.Draggable = true -- Ui can drag
+-- // Rank
+local Rank = "👤 • Free"
 
--- Ui KeyEnter
-KeyEnter.Name = "KeyEnter"
-KeyEnter.Parent = KeyMain
-KeyEnter.BackgroundColor3 = Color3.fromRGB(75, 75, 75)
-KeyEnter.BorderColor3 = Color3.fromRGB(0, 0, 0)
-KeyEnter.BorderSizePixel = 0
-KeyEnter.Position = UDim2.new(0.191307724, 0, 0.651018858, 0)
-KeyEnter.Size = UDim2.new(0, 200, 0, 38)
-KeyEnter.Font = Enum.Font[TextFontAll]
-KeyEnter.PlaceholderColor3 = Color3.fromRGB(0, 0, 0)
-KeyEnter.PlaceholderText = "Enter You Key Here!"  -- Change Textbox
-KeyEnter.Text = ""
-KeyEnter.TextColor3 = Color3.fromRGB(0, 0, 0)
-KeyEnter.TextSize = 14.000
-KeyEnter.TextStrokeTransparency = 0.000
-KeyEnter.TextWrapped = true
+-- // Time
+local OSTime = os.time()
+local Time = os.date("!*t", OSTime)
 
-UICorner.CornerRadius = UDim.new(0, 8)
-UICorner.Parent = KeyEnter
-
-UIStroke2.Color = Color3.fromRGB(255, 255, 255)
-UIStroke2.Thickness = 2
-UIStroke2.Transparency = 0
-UIStroke2.Parent = KeyEnter
-
-UIStroke.Color = Color3.fromRGB(255, 255, 255)
-UIStroke.Thickness = 2
-UIStroke.Transparency = 0
-UIStroke.Parent = KeyMain
-
-UICorner_2.CornerRadius = UDim.new(0, 22)
-UICorner_2.Parent = KeyMain
-
--- Text1
-Text1.Name = "Text1"
-Text1.Parent = KeyMain
-Text1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Text1.BackgroundTransparency = 1.000
-Text1.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Text1.BorderSizePixel = 0
-Text1.Position = UDim2.new(0, 0, 0.05511811, 0)
-Text1.Size = UDim2.new(0, 324, 0, 27)
-Text1.Font = Enum.Font[TextFontAll]
-Text1.Text = ".:*+ " .. TextLabelText1 .. " +*:."
-Text1.TextColor3 = Color3.fromRGB(255, 255, 255)
-Text1.TextScaled = true
-Text1.TextSize = 14.000
-Text1.TextStrokeTransparency = 0.000
-Text1.TextWrapped = true
-
--- Text2
-Text2.Name = "Text2"
-Text2.Parent = KeyMain
-Text2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Text2.BackgroundTransparency = 1.000
-Text2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Text2.BorderSizePixel = 0
-Text2.Position = UDim2.new(0, 0, 0.352554679, 0)
-Text2.Size = UDim2.new(0, 324, 0, 27)
-Text2.Font = Enum.Font[TextFontAll]
-Text2.Text = TextLabelText2
-Text2.TextColor3 = Color3.fromRGB(255, 255, 255)
-Text2.TextScaled = true
-Text2.TextSize = 14.000
-Text2.TextStrokeTransparency = 0.000
-Text2.TextWrapped = true
-
--- Transparency Ui & Text
-KeyMain.BackgroundTransparency = 1
-Text1.TextTransparency = 1
-Text2.TextTransparency = 1
-KeyEnter.BackgroundTransparency = 1
-
--- Function Tweak when open key system
-local fadeInInfo = TweenInfo.new(2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-local KeyMainGoalsFadeIn = { BackgroundTransparency = 0 }
-local KeyMainTweenFadeIn = TweenService:Create(KeyMain, fadeInInfo, KeyMainGoalsFadeIn)
-
-local textGoalsFadeIn = { TextTransparency = 0 }
-local Text1TweenFadeIn = TweenService:Create(Text1, fadeInInfo, textGoalsFadeIn)
-local Text2TweenFadeIn = TweenService:Create(Text2, fadeInInfo, textGoalsFadeIn)
-
-local KeyEnterGoalsFadeIn = { BackgroundTransparency = 0.75 }
-local KeyEnterTweenFadeIn = TweenService:Create(KeyEnter, fadeInInfo, KeyEnterGoalsFadeIn)
-
--- Call Tweak Function
-KeyMainTweenFadeIn:Play()
-Text1TweenFadeIn:Play()
-Text2TweenFadeIn:Play()
-KeyEnterTweenFadeIn:Play()
-
--- Check Key
-local function checkKey()
-    local feedbackTweenInfo = TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-    local feedbackTween
-
-    if KeyEnter.Text == GKey then -- If correct key
-    	game:GetService("StarterGui"):SetCore("SendNotification",{
-			Title = TextLabelText2, 
-			Text = "Correct Key!", 
-			Icon = ""
-		})
-        KeySystem:Destroy()
-    
-    else  -- If wrong key
-    	game:GetService("StarterGui"):SetCore("SendNotification",{
-			Title = TextLabelText2, 
-			Text = "Wrong Key!", 
-			Icon = ""
-		})
-        wait(1)
-        game:GetService("StarterGui"):SetCore("SendNotification",{
-			Title = TextLabelText2, 
-			Text = "Buy Key For 1$/Mouth", 
-			Icon = ""
-		})
-        feedbackTween = TweenService:Create(KeyEnter, feedbackTweenInfo, {BorderColor3 = Color3.new(1, 0, 0)})
-        feedbackTween:Play()
-
-        feedbackTween.Completed:Connect(function()
-            KeyEnter.BorderColor3 = Color3.new(0, 0, 0)
-        end)
-
-        wait(1)
-    end
+-- // Check Device
+local Device = "Unknown"
+if UIS.TouchEnabled and not UIS.KeyboardEnabled then
+    Device = "📱 Mobile"
+elseif UIS.KeyboardEnabled and not UIS.TouchEnabled then
+    Device = "💻 PC"
+elseif UIS.GamepadEnabled then
+    Device = "🎮 Console"
 end
 
-KeyEnter.FocusLost:Connect(function(enterPressed)
-    if enterPressed then
-        checkKey()
-    end
-end)
+-- // Executor Check
+local Executor = identifyexecutor() or "Unknown"
 
-function Rainbow()
-	return Color3.fromHSV((tick() % 5) / 5, 1, 1)
-end
+-- // Profile & Avatar
+local Avatar = game:HttpGet(string.format("https://thumbnails.roblox.com/v1/users/avatar?userIds=%d&size=180x180&format=Png&isCircular=true", game.Players.LocalPlayer.UserId))
+Avatar = game:GetService("HttpService"):JSONDecode(Avatar).data[1]
+local Avatar = Avatar.imageUrl
 
-game:GetService("RunService").RenderStepped:Connect(function()
-	UIStroke.Color = Rainbow()
-    UIStroke2.Color = Rainbow()
-    Text1.TextColor3 = Rainbow()
-    Text2.TextColor3 = Rainbow()
-end)
+local ProfileCharacter = game:HttpGet(string.format("https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=%d&size=180x180&format=Png&isCircular=true", game.Players.LocalPlayer.UserId))
+ProfileCharacter = game:GetService("HttpService"):JSONDecode(ProfileCharacter).data[1]
+local CharacterImage = ProfileCharacter.imageUrl
+
+-- // Config Embed
+local Embed = {
+    title = "🍀 Test Notify 🛠",
+    color = 5763719,
+
+    author = {
+        name = "made by 840Hz",
+        icon_url = "https://cdn.rafled.com/anime-icons/images/kbwmRYVapUoi1s8wu53U6oI37HQntC8w.jpg",
+        url = "https://github.com/li1Carr0t/Carrot"
+    },
+
+    thumbnail = {
+        url = Avatar -- รูปเล็กมุมขวา
+    },
+
+    image = {
+        url = "https://c4.wallpaperflare.com/wallpaper/118/736/916/gawr-gura-hololive-blue-eyes-white-hair-hd-wallpaper-preview.jpg"
+    },
+
+    fields = {
+        {
+            name = "👤 Name",
+            value = "`" .. Player.Name .. "`\n",
+            inline = true
+        },
+        {
+			name = "🪪 DisplayName",
+            value = "`" .. Player.DisplayName .. "`",
+            inline = true
+        },
+        {
+            name = "🆔 UserId",
+            value = "`" .. tostring(UserId) .. "`\n",
+            inline = true
+        },
+        {
+            name = "💻 Device",
+            value = "`" .. Device .. "`\n",
+            inline = true
+        },
+        {
+            name = "🎮 Game",
+            value = NameMap,
+            inline = true
+        },
+        {
+            name = "🌐 JobId",
+            value = "`" .. JobId .. "`",
+            inline = true
+        },
+        {
+			name = "🎖 Rank",
+            value = Rank,
+            inline = true
+        },
+        {
+			name = "⚡️ Executor",
+            value = "`" .. Executor .. "`",
+            inline = true
+        },
+        {
+            name = "🕒 Time (UTC)",
+            value = "`" .. os.date("!%Y-%m-%d %H:%M:%S") .. "`\n",
+            inline = false
+        }
+    },
+
+    timestamp = string.format(
+        "%d-%02d-%02dT%02d:%02d:%02dZ",
+        Time.year, Time.month, Time.day,
+        Time.hour, Time.min, Time.sec
+    )
+}
+
+
+
+
+-- // *===*   Run Webhook   *===* \\ --
+(syn and syn.request or http_request)({
+    Url = _G.Webhook,
+    Method = "POST",
+    Headers = {
+        ["Content-Type"] = "application/json"
+    },
+    Body = game:GetService("HttpService"):JSONEncode({
+        username = "User : " .. game.Players.LocalPlayer.Name .. " • 🍀",
+        avatar_url = CharacterImage,
+        --content = Content,
+        embeds = {Embed}
+    })
+})
