@@ -6,6 +6,59 @@
 > Do you want to download Release?    
 > **download here [Release](https://github.com/li1Carr0t/Carrot/releases)**
 
+## Key System 1.0.1
+> [+] Add Rainbow Color 🌈    
+> [+] Add UIStroke 🔧    
+> [+] Add UIStroke2 🔧    
+> [+] Change Text2 TextColor to Rainbow 🌈    
+> [+] Change Placeholder Color to Black ⚫️    
+> [+] Change Textbox TextColor to Black ⚫️    
+> [+] Change CornerRadius 22 > 8 🔹      
+
+```lua
+-- *.+  Key System  +.* --
+
+-- // Create UIStroke2
+local UIStroke = Instance.new("UIStroke")
+local UIStroke2 = Instance.new("UIStroke")
+
+-- // Change CornerRadius 22 > 8
+UICorner.CornerRadius = UDim.new(0, 8)
+
+-- // Settings UIStroke
+UIStroke.Color = Color3.fromRGB(255, 255, 255)
+UIStroke.Thickness = 2
+UIStroke.Transparency = 0
+UIStroke.Parent = KeyMain
+
+-- // Settings UIStroke2
+UIStroke2.Color = Color3.fromRGB(255, 255, 255)
+UIStroke2.Thickness = 2
+UIStroke2.Transparency = 0
+UIStroke2.Parent = KeyEnter
+
+-- // Change Placeholder Color
+KeyEnter.PlaceholderColor3 = Color3.fromRGB(0, 0, 0)
+
+-- // Change Textbox TextColor
+KeyEnter.TextColor3 = Color3.fromRGB(0, 0, 0)
+
+-- // Rainbow Function
+function Rainbow()
+	return Color3.fromHSV((tick() % 5) / 5, 1, 1)
+end
+
+-- // Loop
+game:GetService("RunService").RenderStepped:Connect(function()
+	UIStroke.Color = Rainbow()
+    UIStroke2.Color = Rainbow()
+    Text1.TextColor3 = Rainbow()
+    Text2.TextColor3 = Rainbow()
+end)
+```
+
+---
+
 ## Credit Status v1.0.1
 **Update by @li1Carr0t**     
 > [+] Add Rainbow Color 🌈    
