@@ -3,6 +3,41 @@
 > Do you want to download Nightly builds?    
 > **download here [Actions](https://github.com/li1Carr0t/Carrot/actions)**
 
+## Build #17
+> [+] Change Text2 TextColor to Rainbow 🌈    
+> [+] Change Placeholder Color to Black ⚫️    
+> [+] Change Textbox TextColor to Black ⚫️    
+> [+] Change CornerRadius 22 > 8 🔹    
+> [+] Add UIStroke2 🔧    
+
+```lua
+-- *.+  Key System  +.* --
+
+-- // Create UIStroke2
+local UIStroke2 = Instance.new("UIStroke")
+
+-- // Change CornerRadius 22 > 8
+UICorner.CornerRadius = UDim.new(0, 8)
+
+-- // Settings UIStroke2
+UIStroke2.Color = Color3.fromRGB(255, 255, 255)
+UIStroke2.Thickness = 2
+UIStroke2.Transparency = 0
+UIStroke2.Parent = KeyEnter
+
+-- // Change Placeholder Color
+KeyEnter.PlaceholderColor3 = Color3.fromRGB(0, 0, 0)
+
+-- // Change Textbox TextColor
+KeyEnter.TextColor3 = Color3.fromRGB(0, 0, 0)
+
+-- // Rainbow Function
+    UIStroke2.Color = Rainbow()
+    Text2.TextColor3 = Rainbow()
+```
+
+---
+
 ## Build #16
 > [+] Add Rainbow Color 🌈    
 > [+] Add UIStroke 🔧    
