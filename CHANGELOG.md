@@ -6,7 +6,7 @@
 > Do you want to download Release?    
 > **download here [Release](https://github.com/li1Carr0t/Carrot/releases)**
 
-## v1.0.1
+## Credit Status v1.0.1
 **Update by @li1Carr0t**     
 > [+] Add Rainbow Color 🌈    
 > [+] Add Config 📄     
