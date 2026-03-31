@@ -1,6 +1,6 @@
-# Development Build Log
+# Nightly Builds Log 📄
 > [!TIP]
-> do you want to download development build?    
+> do you want to download Nightly builds?    
 > **download here [Actions](https://github.com/li1Carr0t/Carrot/actions)**
 
 ## Build #16
