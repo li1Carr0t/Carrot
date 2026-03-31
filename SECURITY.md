@@ -4,7 +4,7 @@
 
 | Project         | Release | Nightly Build | Open Source |
 | --------------- | ------- | ------------- | ----------- |
-| Performance Hud | ❌      | ✅            | ✅         |
+| Performance Hud | ✅      | ❌            | ✅         |
 | Webhook Discord | ✅      | ❌            | ✅         |
 | Key System      | ✅      | ❌            | ✅         |
 | Credit Status   | ✅      | ❌            | ✅         |
