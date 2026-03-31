@@ -2,7 +2,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/GitHub-Carrot-ffccff?logo=github&logoColor=white" />
-  <img src="https://img.shields.io/badge/Lua-100%25-000099?logo=lua&logoColor=white" />
+  <img src="https://img.shields.io/badge/Lua-100%25-0099ff?logo=lua&logoColor=white" />
   <img src="https://img.shields.io/badge/Carrot-Developer-660099?logo=setuptools&logoColor=white" />
   <img src="https://img.shields.io/badge/Roblox%20Exploit-red?logo=robloxstudio&logoColor=white" />
   <img src="https://img.shields.io/badge/MIT%20License-9900ff?logo=opensourceinitiative&logoColor=white" /> 
