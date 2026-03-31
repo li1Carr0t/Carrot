@@ -56,7 +56,8 @@ CarrotClient is a **Roblox script** built for developers and educators.
 **🌐 Contect**
 
 - Discord : **840.0hz**
-- GitHub : **https://github.com/li1Carr0t**
+- GitHub : **[GitHub](https://github.com/li1Carr0t)**
+- My Template : **[Template](https://github.com/li1Carr0t/CarrotTemplate/releases/tag/1.0.0)**
 
 <p align="center">
   <img src="https://c4.wallpaperflare.com/wallpaper/118/736/916/gawr-gura-hololive-blue-eyes-white-hair-hd-wallpaper-preview.jpg" width="450" />
