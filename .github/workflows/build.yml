@@ -3,44 +3,31 @@ name: Development Build
 on:
   push:
     branches: [ "main" ]
+    paths: 
+      - '.github/workflows/build.lua'   # Trigger เฉพาะไฟล์นี้
   pull_request:
     branches: [ "main" ]
+    paths:
+      - '.github/workflows/build.lua'
   workflow_dispatch:
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout repo without persisting credentials
+      # 1️⃣ Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          persist-credentials: false
 
-      # 2️⃣ List Lua file
-      - name: List Lua file
+      # 2️⃣ ตรวจสอบไฟล์ build.lua
+      - name: List build.lua
         run: |
-          echo "Checking Lua file..."
-          ls -l .github/workflows/build.lua || echo "File not found!"
+          echo "Checking build.lua in workflows folder..."
+          ls -l .github/workflows/build.lua
 
-      # 3️⃣ Run Lua script
-      - name: Run Lua script
+      # 3️⃣ ใช้ build.lua ต่อ (ถ้าต้องการรัน)
+      - name: Run build.lua (optional)
         run: |
-          echo "Running Lua script..."
-          lua .github/workflows/build.lua || echo "Skipped if error"
-
-      # 4️⃣ Prepare build.lua
-      - name: Prepare build.lua
-        run: |
-          echo "Creating build.lua..."
-          cp .github/workflows/build.lua build.lua
-
-      # 5️⃣ Commit & Push build.lua with GITHUB_TOKEN
-      - name: Commit & Push build.lua
-        run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "actions@github.com"
-          git add build.lua
-          git commit -m "Auto build Lua script" || echo "No changes to commit"
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
+          echo "Running build.lua..."
+          lua .github/workflows/build.lua
