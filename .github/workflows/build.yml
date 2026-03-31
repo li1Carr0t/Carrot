@@ -1,4 +1,4 @@
-name: Development Builds
+name: Development Build
 
 on:
   push:
@@ -12,33 +12,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout repo
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2️⃣ ตรวจสอบไฟล์ Lua
       - name: List Lua file
         run: |
           echo "Checking Lua file..."
           ls -l .github/workflows/build.lua || echo "File not found!"
 
-      # 3️⃣ รัน Lua script (ถ้าต้องการ)
       - name: Run Lua script
         run: |
           echo "Running Lua script..."
           lua .github/workflows/build.lua || echo "Skipped if error"
 
-      # 4️⃣ สร้างไฟล์ build.lua (จากไฟล์เดียว หรือรวมหลายไฟล์)
       - name: Prepare build.lua
         run: |
           echo "Creating build.lua..."
           cp .github/workflows/build.lua build.lua
 
-      # 5️⃣ Commit & Push build.lua กลับ repo
-      - name: Commit build.lua
+      - name: Commit & Push build.lua
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
           git add build.lua
           git commit -m "Auto build Lua script" || echo "No changes to commit"
-          git push
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
