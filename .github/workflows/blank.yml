@@ -1,9 +1,11 @@
 name: Lua Auto Update
 
 on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    paths:
-      - '**.lua'   # trigger เมื่อไฟล์ lua เปลี่ยน
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   run:
