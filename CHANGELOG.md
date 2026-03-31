@@ -1,10 +1,10 @@
-# ChangeLog
+# 🗂 Releases Log
 ![Verifed](https://img.shields.io/badge/Verify%20Log-6699ff?logo=verizon&logoColor=white)
 ![Release](https://img.shields.io/badge/Release%20Version-6666ff?logo=files&logoColor=white)
 
 > [!TIP]
 > Do you want to download Release?    
-> **download here [Release](https://github.com/li1Carr0t/Carrot/releases)**
+> **download here [Releases](https://github.com/li1Carr0t/Carrot/releases)**
 
 ## Webhook Discord v1.0.2 (Beta)
 **⚡️ Function**
