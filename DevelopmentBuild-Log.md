@@ -5,6 +5,12 @@
 > Do you want to download Nightly builds?    
 > **download here [Actions](https://github.com/li1Carr0t/Carrot/actions)**
 
+## Build #19
+> [+] New Performance Overlay    
+> Build v1.0.2.1    
+![img](https://eu-central.storage.cloudconvert.com/tasks/2031fe99-cd73-49e5-889f-f73ad4baab95/6A1CC6A9-D61E-42C3-8423-EFEAE4BE1B26.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20260331%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20260331T112811Z&X-Amz-Expires=86400&X-Amz-Signature=1a82f466a537262aaf2635919207d10677c632b21cd1baaf5f52da55b47acf83&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%226A1CC6A9-D61E-42C3-8423-EFEAE4BE1B26.png%22&response-content-type=image%2Fpng&x-id=GetObject)
+---
+
 ## Build #18
 > [+] Add Webhook Discord 👾    
 > `https://github.com/li1Carr0t/Carrot/blob/main/.github/workflows/build.lua`
