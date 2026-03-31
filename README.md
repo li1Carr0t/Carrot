@@ -1,13 +1,15 @@
-# 🖥 CarrotClient.exe
+<h1 align="center">🖥 CarrotClient.exe</h1>
 
-![Repo](https://img.shields.io/badge/GitHub-Carrot-ffccff?logo=github&logoColor=white)
-![Lua](https://img.shields.io/badge/Lua-100%25-000099?logo=lua&logoColor=white)
-![Developer](https://img.shields.io/badge/Carrot-Developer-660099?logo=setuptools&logoColor=white)
-![RbloxExploit](https://img.shields.io/badge/Roblox%20Exploit-red?logo=robloxstudio&logoColor=white)
-![MIT license](https://img.shields.io/badge/MIT%20License-9900ff?logo=opensourceinitiative&logoColor=white)
-![OpenSource](https://img.shields.io/badge/Open-Source-00cc00?logo=opensourcehardware&logoColor=white)
-![Free](https://img.shields.io/badge/Free-6699ff?logo=Fueler&logoColor=white)
-![Verify User](https://img.shields.io/badge/User%20Verifed-006600?logo=verizon&logoColor=white)
+<p align="center">
+  <img src="https://img.shields.io/badge/GitHub-Carrot-ffccff?logo=github&logoColor=white" />
+  <img src="https://img.shields.io/badge/Lua-100%25-000099?logo=lua&logoColor=white" />
+  <img src="https://img.shields.io/badge/Carrot-Developer-660099?logo=setuptools&logoColor=white" />
+  <img src="https://img.shields.io/badge/Roblox%20Exploit-red?logo=robloxstudio&logoColor=white" />
+  <img src="https://img.shields.io/badge/MIT%20License-9900ff?logo=opensourceinitiative&logoColor=white" /> 
+  <img src="https://img.shields.io/badge/Open-Source-00cc00?logo=opensourcehardware&logoColor=white" />
+  <img src="https://img.shields.io/badge/Free-6699ff?logo=Fueler&logoColor=white" />
+  <img src="https://img.shields.io/badge/User%20Verifed-006600?logo=verizon&logoColor=white" />
+</p>
 
 **🧠 About Project**
 
@@ -54,3 +56,7 @@ CarrotClient is a **Roblox script** built for developers and educators.
 
 - Discord : **840.0hz**
 - GitHub : **https://github.com/li1Carr0t**
+
+<p align="center">
+  <img src="https://c4.wallpaperflare.com/wallpaper/118/736/916/gawr-gura-hololive-blue-eyes-white-hair-hd-wallpaper-preview.jpg" width="450" />
+</p
