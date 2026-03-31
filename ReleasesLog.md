@@ -6,7 +6,7 @@
 > Do you want to download Release?    
 > **download here [Releases](https://github.com/li1Carr0t/Carrot/releases)**
 
-## Webhook Discord v1.0.2 (Beta)
+## Webhook Discord v1.0.2
 **⚡️ Function**
 > - Custom Webhook Name
 > - Show Username
