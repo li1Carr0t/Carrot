@@ -4,7 +4,7 @@
 
 > [!TIP]
 > Do you want to download Release?    
-> **download here [Release](https://github.com/li1Carr0t/Carrot/release)**
+> **download here [Release](https://github.com/li1Carr0t/Carrot/releases)**
 
 ## v1.0.1
 **Update by @li1Carr0t**     
