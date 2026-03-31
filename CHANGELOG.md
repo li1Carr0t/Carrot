@@ -6,6 +6,24 @@
 > Do you want to download Release?    
 > **download here [Release](https://github.com/li1Carr0t/Carrot/releases)**
 
+## Webhook Discord v1.0.2 (Beta)
+**⚡️ Function**
+> - Custom Webhook Name
+> - Show Username
+> - Show DisplayName
+> - UserId
+> - Device
+> - Name Map
+> - JodId
+> - Rank ( Access )
+> - Executor
+> - Time
+```lua
+_G.Webhook = "https://discord.com/api/webhooks/xxxxxxxx-yyyyyyyyyyyy"  -- Url Here
+```
+
+---
+
 ## Key System 1.0.1
 > [+] Add Rainbow Color 🌈    
 > [+] Add UIStroke 🔧    
