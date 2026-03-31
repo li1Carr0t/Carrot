@@ -33,7 +33,7 @@ CarrotClient is a **Roblox script** built for developers and educators.
 
 **[🗂 View Source Code](https://github.com/li1Carr0t/Carrot/tree/main/OPEN%20SOURCE)**    
 **[📥 Download Source Code](https://github.com/li1Carr0t/Carrot/releases)**    
-**[🌙 Nightly Build](https://github.com/li1Carr0t/Carrot/actions)**
+**[🌙 Nightly Builds](https://github.com/li1Carr0t/Carrot/blob/main/DevelopmentBuild-Log.md)**
 
 > [!TIP]
 > 🖥 Support **Mobile & PC**    
