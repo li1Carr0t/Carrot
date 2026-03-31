@@ -17,7 +17,7 @@ CarrotClient is a **Roblox script** built for developers and educators.
 
 > [!IMPORTANT] 
 > Status : **ACTIVE 🔥**    
-> Build : **[v1.0.2](https://github.com/li1Carr0t/Carrot/blob/main/ReleasesLog.md)**
+> Build : **[v1.0.3](https://github.com/li1Carr0t/Carrot/blob/main/ReleasesLog.md)**
 
 - ⚡️ Fast Execution
 - ✨ Beautiful UI
