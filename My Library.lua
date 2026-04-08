@@ -1,45 +1,68 @@
--- GlassUI Loadstring-ready v1.0
--- ไม่ต้อง ModuleScript, ใช้ได้กับทุก executor
-
+-- GlassUI iOS26 Loadstring-ready
 local GlassUI = {}
 GlassUI.__index = GlassUI
 
 local Players = game:GetService("Players")
+local TweenService = game:GetService("TweenService")
+
+-- Theme Glass iOS26
 local Theme = {
     Background = Color3.fromRGB(240,240,245),
     Primary = Color3.fromRGB(10,132,255),
     Text = Color3.fromRGB(0,0,0),
     ToggleOn = Color3.fromRGB(48,209,88),
-    ToggleOff = Color3.fromRGB(142,142,147)
+    ToggleOff = Color3.fromRGB(142,142,147),
+    GlassAlpha = 0.4 -- ความโปร่งใส
 }
 
 local function create(class,parent,props)
     local obj = Instance.new(class)
-    if props then for i,v in pairs(props) do obj[i]=v end end
+    if props then
+        for i,v in pairs(props) do obj[i]=v end
+    end
     obj.Parent = parent
     return obj
+end
+
+-- Function สร้าง Glass Frame
+local function createGlassFrame(parent,size,pos)
+    local frame = create("Frame", parent, {
+        Size = size,
+        Position = pos,
+        BackgroundColor3 = Theme.Background,
+        BackgroundTransparency = 1
+    })
+    create("UICorner", frame) -- โค้งขอบ
+    local bg = create("Frame", frame, {
+        Size = UDim2.new(1,0,1,0),
+        BackgroundColor3 = Theme.Background,
+        BackgroundTransparency = 1
+    })
+    create("UICorner", bg)
+    return frame
 end
 
 -- สร้าง Hub
 function GlassUI:Init(title)
     local hub = {}
     hub.Window = create("ScreenGui", Players.LocalPlayer:WaitForChild("PlayerGui"), {Name=title, ResetOnSpawn=false})
-    hub.MainFrame = create("Frame", hub.Window,{
-        Size=UDim2.new(0,400,0,300),
-        Position=UDim2.new(0.5,-200,0.5,-150),
-        BackgroundColor3=Theme.Background,
-        BorderSizePixel=0
-    })
+    hub.MainFrame = createGlassFrame(hub.Window, UDim2.new(0,450,0,350), UDim2.new(0.5,-225,0.5,-175))
+    
     hub.Title = create("TextLabel", hub.MainFrame,{
-        Text=title, Size=UDim2.new(1,0,0,40),
-        BackgroundTransparency=1, TextColor3=Theme.Text,
-        Font=Enum.Font.GothamBold, TextSize=22
+        Text = title,
+        Size = UDim2.new(1,0,0,50),
+        BackgroundTransparency = 1,
+        TextColor3 = Theme.Text,
+        Font = Enum.Font.GothamBold,
+        TextSize = 24
     })
+    
     hub.TabFrame = create("Frame", hub.MainFrame,{
-        Size=UDim2.new(1,0,1,-40),
-        Position=UDim2.new(0,0,0,40),
-        BackgroundTransparency=1
+        Size = UDim2.new(1,0,1,-50),
+        Position = UDim2.new(0,0,0,50),
+        BackgroundTransparency = 1
     })
+    
     hub.Tabs = {}
     setmetatable(hub,{__index=GlassUI.TabHub})
     return hub
@@ -50,31 +73,40 @@ GlassUI.TabHub = {}
 function GlassUI.TabHub:CreateTab(name)
     local tab = {}
     tab.Content = create("ScrollingFrame", self.TabFrame,{
-        Size=UDim2.new(1,0,1,0),
-        BackgroundTransparency=1,
-        CanvasSize=UDim2.new(0,0,0,0)
+        Size = UDim2.new(1,0,1,0),
+        BackgroundTransparency = 1,
+        CanvasSize = UDim2.new(0,0,0,0)
     })
-    tab.Layout = create("UIListLayout", tab.Content,{Padding=UDim.new(0,5)})
+    tab.Layout = create("UIListLayout", tab.Content,{Padding=UDim.new(0,8)})
     table.insert(self.Tabs, tab)
     return setmetatable(tab,{__index=GlassUI.Tab})
 end
 
 GlassUI.Tab = {}
 
-function GlassUI.Tab:Button(text,callback)
+-- ปุ่มแบบ {Title="", Callback=function() end} + Glass Style
+function GlassUI.Tab:Button(options)
     local btn = create("TextButton", self.Content,{
-        Text=text, Size=UDim2.new(1,-10,0,30),
-        BackgroundColor3=Theme.Primary, TextColor3=Color3.new(1,1,1),
-        Font=Enum.Font.Gotham, TextSize=18
+        Text = options.Title or "Button",
+        Size = UDim2.new(1, -20, 0, 40),
+        BackgroundColor3 = Theme.Primary,
+        BackgroundTransparency = 0.4, -- Glass
+        TextColor3 = Color3.new(1,1,1),
+        Font = Enum.Font.GothamBold,
+        TextSize = 18
     })
-    btn.MouseButton1Click:Connect(callback)
+    create("UICorner", btn) -- ขอบโค้ง
+    btn.MouseButton1Click:Connect(function()
+        if options.Callback then options.Callback() end
+    end)
     return btn
 end
 
-function GlassUI.Tab:Toggle(text,default,callback)
+-- Toggle แบบ Glass
+function GlassUI.Tab:Toggle(title,default,callback)
     local frame = create("Frame", self.Content,{Size=UDim2.new(1,0,0,30), BackgroundTransparency=1})
     local label = create("TextLabel", frame,{
-        Text=text, Size=UDim2.new(0.8,0,1,0),
+        Text=title, Size=UDim2.new(0.8,0,1,0),
         BackgroundTransparency=1, TextColor3=Theme.Text,
         Font=Enum.Font.Gotham, TextSize=16, TextXAlignment=Enum.TextXAlignment.Left
     })
@@ -82,6 +114,7 @@ function GlassUI.Tab:Toggle(text,default,callback)
         Size=UDim2.new(0,30,0,30), Position=UDim2.new(0.85,0,0,0),
         BackgroundColor3=default and Theme.ToggleOn or Theme.ToggleOff, Text=""
     })
+    create("UICorner", toggle)
     toggle.MouseButton1Click:Connect(function()
         toggle.BackgroundColor3 = toggle.BackgroundColor3==Theme.ToggleOn and Theme.ToggleOff or Theme.ToggleOn
         callback(toggle.BackgroundColor3==Theme.ToggleOn)
@@ -89,18 +122,22 @@ function GlassUI.Tab:Toggle(text,default,callback)
     return toggle
 end
 
-function GlassUI.Tab:Slider(text,min,max,default,callback)
+-- Slider แบบ Glass
+function GlassUI.Tab:Slider(title,min,max,default,callback)
     local frame = create("Frame", self.Content,{Size=UDim2.new(1,0,0,50), BackgroundTransparency=1})
     local label = create("TextLabel", frame,{
-        Text=text.." : "..default, Size=UDim2.new(1,0,0,20),
+        Text=title.." : "..default, Size=UDim2.new(1,0,0,20),
         BackgroundTransparency=1, TextColor3=Theme.Text,
         Font=Enum.Font.Gotham, TextSize=14
     })
     local bg = create("Frame", frame,{
         Size=UDim2.new(1,0,0,10), Position=UDim2.new(0,0,0,25),
-        BackgroundColor3=Theme.ToggleOff, ClipsDescendants=true
+        BackgroundColor3 = Theme.ToggleOff, ClipsDescendants=true
     })
+    create("UICorner", bg)
     local fill = create("Frame", bg,{Size=UDim2.new((default-min)/(max-min),0,1,0), BackgroundColor3=Theme.Primary})
+    create("UICorner", fill)
+    
     local dragging=false
     bg.InputBegan:Connect(function(input)
         if input.UserInputType==Enum.UserInputType.MouseButton1 then dragging=true end
@@ -114,12 +151,13 @@ function GlassUI.Tab:Slider(text,min,max,default,callback)
             local p=math.clamp(mx/bg.AbsoluteSize.X,0,1)
             fill.Size=UDim2.new(p,0,1,0)
             local val=math.floor(min+p*(max-min))
-            label.Text=text.." : "..val
+            label.Text=title.." : "..val
             callback(val)
         end
     end)
 end
 
+-- Paragraph
 function GlassUI.Tab:Paragraph(text)
     return create("TextLabel", self.Content,{
         Text=text, Size=UDim2.new(1,0,0,40),
@@ -128,5 +166,4 @@ function GlassUI.Tab:Paragraph(text)
     })
 end
 
--- คืนค่า Library สำหรับใช้ทันที
 return GlassUI
